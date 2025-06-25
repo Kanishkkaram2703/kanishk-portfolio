@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Hi, I'm Kanishk Karam – an aspiring AI & ML Developer. Explore my projects, skills, and certifications.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio of Kanishk Karam – AI & ML Enthusiast</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mediaqueries.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        .typing::after {
-            content: "|";
-            animation: blink 0.7s infinite;
-        }
-
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-    </style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanishk Karam | AI & ML Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/mediaqueries.css" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    .typing::after {
+      content: "|";
+      animation: blink 0.7s infinite;
+    }
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-    <header class="header">
-        <a href="#home" class="logo">Kanishk <span>Karam</span></a>
-
-        <i class='bx bx-menu' id="menu-icon" class="hamburger-icon"></i>
-
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <header class="header">
+    <a href="#home" class="logo">Kanishk <span>Karam</span></a>
+    <i class='bx bx-menu' id="menu-icon"></i>
+    <nav class="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
     <section class="home" id = "home">
         <div class="home-content">
@@ -80,7 +75,7 @@
                         <p>
                             Oxford International School
                             SSC [2009 - 2021]
-                            Percentage: 10 cgpa
+                            Percentage: 10 CGPA
                         </p>
                     </div>
 
@@ -419,110 +414,95 @@
     </section>
 
     <footer class="footer">
-        <div class="social">
-            <a href="https://www.linkedin.com/in/kanishk-karam-195739284" target="_blank"><i class='bx bxl-linkedin'></i></a>
-            <a href="https://github.com/Kanishkkaram2703" target="_blank"><i class='bx bxl-github'></i></a>
-            <a href="https://www.instagram.com/ur_z_kanishq_2729/" target="_blank"><i class='bx bxl-instagram-alt'></i></a>
-            <a href="mailto:kanishk.karam.28@gmail.com" target="_blank"
-            ><i class='bx bxl-gmail'></i></a>
-        </div>
-        
+    <div class="social">
+      <a href="https://www.linkedin.com/in/kanishk-karam-195739284"><i class='bx bxl-linkedin'></i></a>
+      <a href="https://github.com/Kanishkkaram2703"><i class='bx bxl-github'></i></a>
+      <a href="https://www.instagram.com/ur_z_kanishq_2729/"><i class='bx bxl-instagram-alt'></i></a>
+      <a href="mailto:kanishk.karam.28@gmail.com"><i class='bx bxl-gmail'></i></a>
+    </div>
+    <ul class="list">
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">About Me</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Skills</a></li>
+    </ul>
+    <p class="copyright">
+      &copy; Kanishk Karam | All rights reserved.
+    </p>
+  </footer>
 
-        <ul class="list">
-            <li>
-                <a href="#">FAQ</a>
-            </li>
+  <script src="js/script.js"></script>
+  <script>
+    const menuIcon = document.querySelector('#menu-icon');
+    const navbar = document.querySelector('.navbar');
+    menuIcon.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
 
-            <li>
-                <a href="#">Services</a>
-            </li>
+    // Typing effect
+    const words = ["Data Scientist", "Data Analyst", "Machine Learning Developer", "Deep Learning Enthusiast", "Computer Vision Explorer", "NLP Research Learner", "AI & Data Science Intern"];
+    let wordIndex = 0, charIndex = 0;
+    const typingElement = document.querySelector(".text-animation span");
+    const typingSpeed = 150, erasingSpeed = 100, pauseTime = 1000;
 
-            <li>
-                <a href="#">About Me</a>
-            </li>
+    function typeWord() {
+      if (charIndex < words[wordIndex].length) {
+        typingElement.textContent += words[wordIndex][charIndex];
+        charIndex++;
+        setTimeout(typeWord, typingSpeed);
+      } else {
+        setTimeout(eraseWord, pauseTime);
+      }
+    }
 
-            <li>
-                <a href="#">Contact</a>
-            </li>
-            
-            <li>
-                <a href="#">Skills</a>
-            </li>
-        </ul>
-        <p class="copyright">
-            © Kanishk Karam | All rights reserved.
-        </p>
-    </footer>
+    function eraseWord() {
+      if (charIndex > 0) {
+        typingElement.textContent = words[wordIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseWord, erasingSpeed);
+      } else {
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeWord, typingSpeed);
+      }
+    }
 
-    <script>
-        // Select all section IDs and navigation links
-        const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll("nav a");
-    
-        window.onscroll = () => {
-            sections.forEach(section => {
-                let top = window.scrollY;
-                let offset = section.offsetTop - 150; 
-                let height = section.offsetHeight;
-                let id = section.getAttribute("id");
-    
-                if (top >= offset && top < offset + height) {
-                    navLinks.forEach(link => {
-                        link.classList.remove("active");
-                        document.querySelector(`nav a[href*=${id}]`).classList.add("active");
-                    });
-                }
-            });
-        };
-    </script>
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(typeWord, typingSpeed);
+    });
 
-    <script>
-        const words = ["Data Scientist","Data Analyst", "Machine Learning Developer", "Deep Learning Enthusiast", "Computer Vision Explorer", "NLP Research Learner", "AI & Data Science Intern"];
-        let wordIndex = 0;    
-        let charIndex = 0;    
-        const typingElement = document.querySelector(".typing");
-        const typingSpeed = 150; 
-        const erasingSpeed = 100; 
-        const pauseTime = 1000;   
-        function typeWord() {
-            // Add the next character
-            if (charIndex < words[wordIndex].length) {
-                typingElement.textContent += words[wordIndex][charIndex];
-                charIndex++;
-                setTimeout(typeWord, typingSpeed);
-            } else {
-                // Pause before starting to erase
-                setTimeout(eraseWord, pauseTime);
-            }
+    // Fade-in on scroll
+    const fadeEls = document.querySelectorAll('.fade-in');
+    window.addEventListener('scroll', () => {
+      fadeEls.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add('show');
         }
-
-        function eraseWord() {
-            // Remove characters one by one
-            if (charIndex > 0) {
-                typingElement.textContent = words[wordIndex].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(eraseWord, erasingSpeed);
-            } else {
-                // Move to the next word
-                wordIndex = (wordIndex + 1) % words.length; 
-                setTimeout(typeWord, typingSpeed);
-            }
-        }
-
-        // Start the typing effect
-            document.addEventListener("DOMContentLoaded", () => {
-            setTimeout(typeWord, typingSpeed);
-        });
-    </script>
-
-    <script src="script.js"></script>
-    <script>
-      const menuIcon = document.querySelector('#menu-icon');
-      const navbar = document.querySelector('.navbar');
-
-      menuIcon.addEventListener('click', () => {
-        navbar.classList.toggle('active');
       });
-    </script>
+    });
+
+    // Active section highlighting
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
